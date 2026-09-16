@@ -1,0 +1,39 @@
+/* Art direction: SHANNA / Figma node 2:2. Real-time geometry remains in BottleScene. */
+.site-header,.chapter,.hero-overline,.stage-bottom{font-family:'Inter',Arial,sans-serif}
+.wordmark{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:400;letter-spacing:6px}
+.site-header{height:110px;border-bottom:0}
+.site-header::after{content:'';height:1px;position:absolute;bottom:0;left:4.2%;right:4.2%;background:#f2f0eb20}
+.desktop-nav{font-size:9px;letter-spacing:1px;text-transform:uppercase;gap:32px;margin-left:0}
+.edition{display:none}
+.header-actions{min-width:150px;justify-content:flex-end}
+.bag-button{font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.hero-overline{top:150px;left:5.6%;right:5.6%;font-size:8px;letter-spacing:2px}
+.chapter{padding-left:5.6%;padding-right:5.6%}
+.chapter h1,.chapter h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-3px;line-height:.91}
+.intro{padding-top:48px}
+.intro h1{font-size:clamp(82px,8.1vw,128px);max-width:52%}
+.intro h1 em{margin-left:0;white-space:nowrap;display:inline}
+.chapter-eyebrow{font-size:8px;letter-spacing:1.6px;margin-bottom:28px;color:#b3abb1}
+.intro-bottom{flex-direction:column;align-items:flex-start;gap:25px;margin-top:28px}
+.intro-bottom p{font-size:12px;line-height:1.8;color:#a7aab2}
+.intro .text-link{text-transform:uppercase;font-size:9px;letter-spacing:1.4px;gap:32px;padding-bottom:14px;border-color:#f2f0eb50}
+.intro .text-link svg{transition:transform .35s ease}
+.intro .text-link:hover svg{transform:translate(3px,-3px)}
+.bottle-caption{right:16%;bottom:16%;font-size:8px;letter-spacing:2px}
+.bottle-caption small{font-size:6px;line-height:1.7}
+.stage-bottom{left:5.6%;right:5.6%;bottom:34px;font-size:7px;letter-spacing:1.2px}
+.stage-bottom>span:first-child{display:none}
+.stage-bottom .scroll-cue{display:flex}
+.stage-grain{background:radial-gradient(ellipse at 70% 45%,transparent 35%,#07080b44 100%)}
+@media(min-width:1500px){.intro h1{font-size:132px}.intro{padding-left:5.6%}}
+@media(max-width:900px) and (min-width:601px){.intro h1{font-size:clamp(64px,9vw,82px)}.intro-bottom p{font-size:11px}.bottle-caption{right:12%}}
+@media(max-width:600px){
+ .site-header{height:80px;padding:0 23px}.wordmark{font-size:28px;letter-spacing:4px}.header-actions{min-width:0}.hero-overline{top:107px;left:25px;font-size:6px;letter-spacing:1.5px}
+ .stage{min-height:720px}.chapter{padding:152px 25px 90px}.intro{padding-top:151px}.chapter-eyebrow{font-size:6px;margin-bottom:17px}
+ .intro h1{font-size:clamp(58px,16.5vw,76px);line-height:.88;letter-spacing:-2px;max-width:100%}.intro h1 em{margin-left:0;white-space:nowrap}
+ .canvas-layer{inset:24% -10% 10%;transform:none}.intro-bottom{left:25px;right:25px;bottom:80px;flex-direction:row;align-items:flex-end;gap:16px;margin:0}.intro-bottom p{font-size:9px;line-height:1.8}.intro .text-link{font-size:7px;letter-spacing:.6px;gap:10px;padding-bottom:9px}.intro .text-link svg{width:15px}
+ .bottle-caption{right:30px;bottom:157px;font-size:6px;letter-spacing:1.2px}.bottle-caption small{font-size:5px;margin-top:6px}
+ .stage-bottom{left:25px;right:25px;bottom:25px;font-size:6px}.stage-bottom>span:last-child{display:none}.stage-bottom .scroll-cue{width:100%;justify-content:space-between}
+ .notes-list{margin-top:35px}.notes h2{font-size:51px}
+}
+@media(prefers-reduced-motion:reduce){.intro .text-link svg{transition:none}}
