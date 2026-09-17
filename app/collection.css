@@ -18,3 +18,17 @@
 
 /* Keep metadata inside the arched silhouette at every width. */
 .collection .product-top{left:22%;right:22%;top:26px}
+.collection-controls{display:none}
+@media(max-width:600px){
+ .collection{padding:52px 20px 25px}.collection-heading{margin-bottom:24px}.collection-heading h2{font-size:52px}.collection-intro{margin-top:22px}.collection-interaction{display:none}
+ .collection .products{position:relative;display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;margin:0 -20px;padding:5px 20px 12px;scroll-snap-type:x mandatory;scroll-padding-inline:20px;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .collection .products::-webkit-scrollbar{display:none}
+ .collection .product{flex:0 0 calc(100% - 24px);min-width:0;scroll-snap-align:start;scroll-snap-stop:always;background:#19191f;border:1px solid #ffffff20;border-radius:20px;overflow:hidden;padding:0 0 22px;transform:none!important;opacity:1!important}
+ .collection .product .product-visual{height:290px;height:clamp(240px,36svh,300px);border:0;border-radius:0;background:radial-gradient(ellipse at 50% 54%,var(--tint),#19191f 80%)}
+ .collection .product-top{top:18px;left:18px;right:18px}.collection .product-top>span:first-child{height:26px;width:26px;font-size:9px}.collection .product-top>span:last-child{max-width:110px;font-size:6px}
+ .collection .collection-bottle-stage{inset:28px 0 25px}.collection .scent-orbit{height:72%;width:66%}.collection .scent-ghost{font-size:32px;letter-spacing:3px}
+ .collection .product-explore{bottom:12px;left:18px;right:18px;font-size:6px}.collection .explore-plus{width:28px;height:28px}
+ .collection .product-title{margin:14px 20px 0;padding-top:15px;border-top:1px solid #ffffff14}.collection .product-title h3{font-size:30px}.collection .product>p{margin:7px 20px 14px;font-size:9px;min-height:16px}.collection .product>.price{display:block;margin:0 20px;font-size:10px}
+ .collection-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}.collection-controls>span{font-size:6px;letter-spacing:1.2px;color:#a79ba7}.collection-pagination,.collection-arrows{display:flex;align-items:center}.collection-pagination button{width:26px;height:44px;display:grid;place-items:center}.collection-pagination button span{width:5px;height:5px;border-radius:50%;background:#5e535e;transition:background .3s,transform .3s}.collection-pagination button[aria-current=true] span{background:#d7adb9;transform:scale(1.4)}.collection-arrows button{height:44px;width:40px;display:grid;place-items:center}.collection-arrows button:disabled{opacity:.25}.collection-footnote{margin-top:19px}
+ .collection .product-visual>.mini-bottle,.collection .collection-bottle-stage>.mini-bottle{transform:scale(.8)}
+}
