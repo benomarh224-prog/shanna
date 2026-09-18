@@ -10,13 +10,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 type Props = { color: string; name: string; reduced: boolean; fallback: ReactNode };
 type Motion = { progress: number; x: number; y: number; active: number };
 
-class SceneBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
+export class SceneBoundary extends Component<{ children: ReactNode; fallback: ReactNode; onFailure?: () => void }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch() { this.props.onFailure?.(); }
   render() { return this.state.failed ? this.props.fallback : this.props.children; }
 }
 
-function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'> & { motion: React.RefObject<Motion> }) {
+export function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'> & { motion: React.RefObject<Motion> }) {
   const bottle = useRef<THREE.Group>(null);
   const texture = useMemo(() => {
     const canvas = document.createElement('canvas');
@@ -28,7 +29,7 @@ function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'> & { m
     ctx.font = '23px Arial'; ctx.fillText('E A U   D E   P A R F U M', 384, 105);
     ctx.font = '87px Georgia'; ctx.fillText('SHANNA', 384, 250);
     ctx.font = '26px Arial'; ctx.fillText(name.toUpperCase().split('').join(' '), 384, 350);
-    ctx.font = '20px Arial'; ctx.fillText('50 ml  /  1.7 fl. oz.', 384, 434);
+    ctx.font = '20px Arial'; ctx.fillText('THE SIGNATURE COLLECTION', 384, 434);
     const map = new THREE.CanvasTexture(canvas); map.colorSpace = THREE.SRGBColorSpace;
     return map;
   }, [name]);
@@ -64,7 +65,7 @@ function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'> & { m
   </group>;
 }
 
-function ContextGuard({ fail }: { fail: () => void }) {
+export function ContextGuard({ fail }: { fail: () => void }) {
   const gl = useThree(state => state.gl);
   useEffect(() => {
     const canvas = gl.domElement;
