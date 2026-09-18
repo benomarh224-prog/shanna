@@ -1,9 +1,10 @@
 'use client';
 
-import { Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Environment, Lightformer, RoundedBox } from '@react-three/drei';
+import { Environment, Lightformer } from '@react-three/drei';
 import * as THREE from 'three';
+import GoldenBottle from './GoldenBottle';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -19,21 +20,6 @@ export class SceneBoundary extends Component<{ children: ReactNode; fallback: Re
 
 export function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'> & { motion: React.RefObject<Motion> }) {
   const bottle = useRef<THREE.Group>(null);
-  const texture = useMemo(() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 768; canvas.height = 512;
-    const ctx = canvas.getContext('2d')!;
-    ctx.fillStyle = '#f2eee4'; ctx.fillRect(0, 0, 768, 512);
-    ctx.strokeStyle = '#b1a699'; ctx.lineWidth = 2; ctx.strokeRect(18, 18, 732, 476);
-    ctx.fillStyle = '#29232a'; ctx.textAlign = 'center';
-    ctx.font = '23px Arial'; ctx.fillText('E A U   D E   P A R F U M', 384, 105);
-    ctx.font = '87px Georgia'; ctx.fillText('SHANNA', 384, 250);
-    ctx.font = '26px Arial'; ctx.fillText(name.toUpperCase().split('').join(' '), 384, 350);
-    ctx.font = '20px Arial'; ctx.fillText('THE SIGNATURE COLLECTION', 384, 434);
-    const map = new THREE.CanvasTexture(canvas); map.colorSpace = THREE.SRGBColorSpace;
-    return map;
-  }, [name]);
-  useEffect(() => () => texture.dispose(), [texture]);
   useFrame(({ clock }, delta) => {
     if (!bottle.current) return;
     const m = motion.current;
@@ -49,19 +35,7 @@ export function Perfume({ color, name, motion, reduced }: Omit<Props, 'fallback'
     bottle.current.scale.setScalar(THREE.MathUtils.lerp(bottle.current.scale.x, scale, ease));
   });
   return <group ref={bottle} position={[0, -.2, 0]}>
-    <RoundedBox args={[1.5, 1.85, .78]} radius={.16} smoothness={3}>
-      <meshPhysicalMaterial color="#f0e7df" transparent opacity={.28} depthWrite={false} transmission={.2} thickness={.22} roughness={.12} ior={1.48} envMapIntensity={.8} />
-    </RoundedBox>
-    <RoundedBox args={[1.3, 1.46, .59]} radius={.11} smoothness={3} position={[0, -.09, 0]}>
-      <meshPhysicalMaterial color={color} transmission={0} thickness={.45} roughness={.15} clearcoat={.65} />
-    </RoundedBox>
-    <RoundedBox args={[1.36, .10, .65]} radius={.03} smoothness={2} position={[0, -.85, 0]}>
-      <meshPhysicalMaterial color="#efe6dd" transmission={.7} thickness={.25} roughness={.1} />
-    </RoundedBox>
-    <mesh position={[0, .99, 0]}><cylinderGeometry args={[.21, .25, .24, 32]} /><meshStandardMaterial color="#c6beb3" metalness={.8} roughness={.25} /></mesh>
-    <mesh position={[0, 1.3, 0]}><cylinderGeometry args={[.43, .43, .51, 48]} /><meshStandardMaterial color="#d8d8d6" metalness={1} roughness={.24} /></mesh>
-    <mesh position={[0, 1.05, 0]}><cylinderGeometry args={[.432, .432, .035, 48]} /><meshStandardMaterial color="#65636a" metalness={1} roughness={.3} /></mesh>
-    <mesh position={[0, -.08, .397]}><planeGeometry args={[1.02, .69]} /><meshBasicMaterial map={texture} toneMapped={false} /></mesh>
+    <GoldenBottle name={name} liquid={color}/>
   </group>;
 }
 
