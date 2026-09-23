@@ -1,24 +1,16 @@
 import Image from 'next/image';
-
+const finishes = ['Black & gold · I', 'White & silver', 'Black & gold · II'];
 export default function MensCollection() {
-  return (
-    <section id="for-him" className="mens-collection" aria-labelledby="mens-title">
-      <div className="mens-heading">
-        <span className="mens-eyebrow">SHANNA COLLECTION / FOR HIM</span>
-        <span className="mens-edition">A DIFFERENT EXPRESSION.</span>
+  return <>{finishes.map((finish, index) => (
+    <article className="product product-men" key={finish} aria-label={`For him — ${finish}`}>
+      <div className="product-visual">
+        <Image className={`mens-bottle-photo mens-bottle-${index}`} src="/images/shanna-men.jpg" alt={`Shanna men's perfume bottle, ${finish}, in clear cylindrical glass.`} fill sizes="(max-width: 600px) 270vw, 100vw" quality={90}/>
+        <div className="product-top"><span>0{index + 4}</span><span>FOR HIM</span></div>
+        <span className="product-explore">SHANNA COLLECTION</span>
       </div>
-      <div className="mens-layout">
-        <div className="mens-copy">
-          <span className="mens-index" aria-hidden="true">02 —</span>
-          <h2 id="mens-title">Presence.<br/><em>His signature.</em></h2>
-          <p>Discover the men’s collection.<br/>A signature, distinctly yours.</p>
-          <div className="mens-caption"><span>FOR HIM</span><span>SHANNA COLLECTION</span></div>
-        </div>
-        <figure className="mens-image">
-          <Image src="/images/shanna-men.jpg" alt="Shanna men's collection: three cylindrical clear glass perfume bottles, two with black and gold caps and one with a white and silver cap, on a light stone surface." width={1280} height={853} sizes="(max-width: 760px) 100vw, 65vw" quality={90}/>
-          <figcaption><span>THE MEN’S COLLECTION</span><span>SHANNA</span></figcaption>
-        </figure>
-      </div>
-    </section>
-  );
+      <div className="product-title"><h3>For him</h3></div>
+      <p>{finish}</p>
+      <span className="price">Details coming soon</span>
+    </article>
+  ))}</>;
 }

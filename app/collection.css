@@ -32,3 +32,14 @@
  .collection-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}.collection-controls>span{font-size:6px;letter-spacing:1.2px;color:#a79ba7}.collection-pagination,.collection-arrows{display:flex;align-items:center}.collection-pagination button{width:26px;height:44px;display:grid;place-items:center}.collection-pagination button span{width:5px;height:5px;border-radius:50%;background:#5e535e;transition:background .3s,transform .3s}.collection-pagination button[aria-current=true] span{background:#d7adb9;transform:scale(1.4)}.collection-arrows button{height:44px;width:40px;display:grid;place-items:center}.collection-arrows button:disabled{opacity:.25}.collection-footnote{margin-top:19px}
  .collection .product-visual>.mini-bottle,.collection .collection-bottle-stage>.mini-bottle{transform:scale(.8)}
 }
+
+/* Men's bottles share the collection grid and mobile swipe track. */
+.collection .product-men .product-visual{background:#ded7cd;overflow:hidden}
+.collection .product-men .mens-bottle-photo{object-fit:cover;max-width:none;width:300%!important;left:0!important}
+.collection .product-men .mens-bottle-0{left:-32%!important}
+.collection .product-men .mens-bottle-1{left:-100%!important}
+.collection .product-men .mens-bottle-2{left:-168%!important}
+.collection .product-men .product-top{z-index:4;color:#29231e}
+.collection .product-men .product-top>span:first-child{border-color:#29231e50;background:#f2f0ebba}
+.collection .product-men .product-top>span:last-child{background:#f2f0ebcc;padding:5px 8px;border-radius:3px}
+.collection .product-men .product-explore{z-index:4;color:#29231e;background:#f2f0ebdb;width:max-content;padding:7px 10px;border-radius:3px}

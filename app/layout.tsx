@@ -8,6 +8,6 @@ import './collection.css';
 import './signature-footer.css';
 import './product-dialog.css';
 import './scent-finder.css';
-import './mens-collection.css';
+
 export const metadata: Metadata = { title: 'SHANNA — A scent. A signature.', description: 'An exploration of contrast. Discover SHANNA and a collection of three expressive eau de parfums.' };
 export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) { return <html lang="en"><body>{children}</body></html>; }
